@@ -1,0 +1,2 @@
+- what are dependencies
+- difference b/w caret and tilde - (^ vs ~)
