@@ -1,27 +1,19 @@
 const express = require("express");
 
 const app = express();
-const {adminAuth, userAuth} = require("./middlewares/auth")
 
-app.use("/admin", adminAuth)
+app.get("/getUser", (req, res)=>{
 
-
-app.get("/user/login", (req, res)=>{
-    res.send("User logined")
+    throw new Error("fgsgv")
+    res.send("User data Sent")
 })
 
-app.get("/user", userAuth, (req, res)=>{
-    res.send("User data sent")
+app.use("/" , (err, req, res, next)=>{
+    if(err){
+        res.status(500).send("something went wrong")
+    }
+    
 })
-
-app.get("/admin/getAlldata", (req, res)=>{
-    res.send("All data Sent")
-})
-
-app.get("/admin/deleteUser", (req, res)=>{
-    res.send("Deleted user")
-})
-
 
 app.listen(7777, () => {
   console.log("server is successfully listen on port 7777");
