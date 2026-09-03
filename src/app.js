@@ -82,7 +82,7 @@ app.patch("/user/:userId", async (req, res) => {
     res.send("User successfully updated");
 
   } catch (err) {
-    res.status(400).send("Update User : " + err.message);
+    res.status(400).send("UPDATE FAILED : " + err.message);
   }
 
 });
