@@ -15,7 +15,7 @@ app.post("/signup", async (req, res) => {
     //* Validation of password
     validateSignUpData(req);
 
-    const { firstName, lastName, emailId, password, } = req.body;
+    const { firstName, lastName, emailId, password } = req.body;
 
     //* Encrypt the password
 
@@ -32,9 +32,34 @@ app.post("/signup", async (req, res) => {
     await user.save();
     res.send("User added successfully");
   } catch (err) {
-    res.status(400).send("Error saving the user" + err.message);
+    res.status(400).send("ERROR : " + err.message);
   }
 });
+
+app.post("/login", async (req,res)=>{
+  try {
+    const {emailId, password} = req.body
+
+    const user = await User.findOne({emailId : emailId})
+    if(!user){
+      throw new Error("Invalid Credentials")
+    }
+
+    const isPasswordValid = await bscrypt.compare(password , user.password)
+
+    if(isPasswordValid){
+      res.send("Login successful...")
+    }
+    else {
+      throw new Error("Invalid Credentials")
+    }
+
+
+  } catch (err) {
+    res.status(400).send("ERROR : " + err.message);
+  }
+})
+
 
 //*  Get User by email.
 app.get("/user", async (req, res) => {
