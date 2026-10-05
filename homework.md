@@ -7,3 +7,9 @@
 
 - Diffrence blw json and JS object.
 - Diff blw patch and put
+
+
+- Read more about index in mongo
+- why do we need index in DB
+- What is the advantage and disadvantage of creating index
+- $or query and $and query
