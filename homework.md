@@ -13,3 +13,6 @@
 - why do we need index in DB
 - What is the advantage and disadvantage of creating index
 - $or query and $and query
+
+- Thought process - POST vs GET 
+- Read about Ref and Populate
