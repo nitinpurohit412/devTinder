@@ -16,3 +16,5 @@
 
 - Thought process - POST vs GET 
 - Read about Ref and Populate
+
+- Read about $nin, $ne, $and and other query operator from mongoDB
