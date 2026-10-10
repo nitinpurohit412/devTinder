@@ -36,6 +36,11 @@ const userSchema = new mongoose.Schema({
         type : Number,
         min : 18,
     },
+    about : {
+        type : String,
+        default : "This is a default about."
+    },
+
     gender : {
         type : String,
         enum: {
@@ -50,6 +55,10 @@ const userSchema = new mongoose.Schema({
     },
     skills : {
         type : [String],
+    },
+    photoUrl : {
+        type : String,
+        default : "https://imgs.search.brave.com/dZdpbogNh8mudIRhimLEsXDq6Z1k_9dZV_i_20CkhzM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cG5nYWxsLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvNS9Vc2Vy/LVByb2ZpbGUtUE5H/LnBuZw"
     }
 }, 
 {
